@@ -37,7 +37,7 @@ public class Q1 {
         for(int e:d){
             if(max==e)
                 ++answer;
-            if(max<e){
+            else if(max<e){
                 max=e;
                 answer=1;
             }
