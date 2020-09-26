@@ -2,7 +2,7 @@ package DFS;
 //DFS는 완전 탐색의 일종인가보다
 //타겟 넘버
 public class Q1 {
-    int dfs(int[] numbers, int idx, int sum, int target) {
+    static int dfs(int[] numbers, int idx, int sum, int target) {
         if (idx == numbers.length) {
             if (sum == target) return 1;
             return 0;
@@ -10,7 +10,7 @@ public class Q1 {
         return dfs(numbers, idx + 1, sum + numbers[idx], target) + dfs(numbers, idx + 1, sum - numbers[idx], target);
     }
 
-    public int solution(int[] numbers, int target) {
+    static public int solution(int[] numbers, int target) {
         return dfs(numbers, 0, 0, target);
     }
     /* 풀이2(백트래킹)
