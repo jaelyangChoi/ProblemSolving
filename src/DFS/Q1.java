@@ -1,17 +1,13 @@
 package DFS;
-
+//DFS는 완전 탐색의 일종인가보다
 //타겟 넘버
 public class Q1 {
-
     int dfs(int[] numbers, int idx, int sum, int target) {
-        int cnt = 0;
         if (idx == numbers.length) {
-            if (sum == target) cnt++;
-            return cnt;
+            if (sum == target) return 1;
+            return 0;
         }
-        cnt += dfs(numbers, idx + 1, sum + numbers[idx], target);
-        cnt += dfs(numbers, idx + 1, sum - numbers[idx], target);
-        return cnt;
+        return dfs(numbers, idx + 1, sum + numbers[idx], target) + dfs(numbers, idx + 1, sum - numbers[idx], target);
     }
 
     public int solution(int[] numbers, int target) {
