@@ -1,6 +1,7 @@
 package DFS;
 
 import java.util.ArrayList;
+
 //네트워크
 public class Q2 {
     static boolean check[];
@@ -13,7 +14,7 @@ public class Q2 {
             g[i] = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
-                if (i!=j&&computers[i][j] == 1)
+                if (i != j && computers[i][j] == 1)
                     g[i].add(j);
         }
 
@@ -29,7 +30,7 @@ public class Q2 {
 
     private static void dfs(ArrayList<Integer> network) {
         for (int c : network) {
-            if(check[c]) continue;
+            if (check[c]) continue;
             check[c] = true;
             dfs(g[c]);
         }
