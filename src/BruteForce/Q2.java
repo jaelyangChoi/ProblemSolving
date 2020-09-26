@@ -2,7 +2,7 @@ package BruteForce;
 
 import java.util.HashSet;
 import java.util.Iterator;
-
+//소수찾기. 다시 풀어볼 것.
 public class Q2 {
     static boolean[] check = new boolean[10];
     static HashSet<Integer> set = new HashSet<>();
