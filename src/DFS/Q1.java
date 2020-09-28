@@ -1,4 +1,5 @@
 package DFS;
+
 //DFS는 완전 탐색의 일종인가보다
 //타겟 넘버
 public class Q1 {
