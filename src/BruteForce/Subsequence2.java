@@ -40,9 +40,7 @@ public class Subsequence2 {
 
         //정렬 후 앞놈은 작->큰 뒷놈은 큰->작 으로 이동하며 합해본다.
         Collections.sort(l1);
-        Collections.sort(l2, Collections.reverseOrder());
-        System.out.println(l1);
-        System.out.println(l2);
+        Collections.sort(l2, Collections.reverseOrder()); //내림차순!
         long cnt = 0;
         int fIdx = 0, rIdx = 0;
         while (fIdx < l1.size() && rIdx < l2.size()) {
