@@ -1,37 +1,29 @@
 package Greedy;
 
-//체육복
+import java.util.ArrayDeque;
 
-//그리디 접근: 왼쪽부터 주고 없으면 오른쪽을 준다는 접근이 그리디가 맞았다. 선택에 우선순위를 두는 것. 그것은 단순히 if() else if()여도 된다.
-//피드백: 체육복 정보를 한꺼번에 저장하면 계산하기 쉬울 건데 메모리 아낀다고 안 만들었고 더 복잡해졌다. 메모리가 문제가 아니라 효율성이 문제다..
+//큰 수 만들기
+//피드백: 이 문제에 효율적인 자료구조가 무엇인지 생각해보자
 public class Q2 {
-    static public int solution(int n, int[] lost, int[] reserve) {
-        int[] clothes = new int[n + 1]; //-1: 없음, 0: 있음, 1: 여벌 있음
-        for (int i = 0; i < lost.length; ++i)
-            clothes[lost[i]] = -1;
-        for (int i = 0; i < reserve.length; ++i)
-            ++clothes[reserve[i]];
+    static public String solution(String number, int k) {
+        //문제를 부분 문제로 쪼개고, 각 단계에서 최선의 선택. 나보다 작은 앞놈을 다 지운다!
+        char[] result = new char[number.length() - k];
+        //앞놈과 비교해 큰 수를 유지 -> stack!
+        ArrayDeque<Character> stack = new ArrayDeque<>();
 
-        for (int i = 1; i <= n; ++i) {
-            if (clothes[i] == -1) {//체육복이 없을 때 빌릴 수 있는가?
-                //앞부터 빌림
-                if (clothes[i - 1] == 1) {
-                    --clothes[i - 1];
-                    ++clothes[i];
-                }
-                //앞에 없으면 뒤에서 빌림
-                else if (i + 1 <= n && clothes[i + 1] == 1){
-                    --clothes[i + 1];
-                    ++clothes[i];
-                }
-            }
+        for (int i = 0; i < number.length(); ++i) {
+            char c = number.charAt(i);
+            while (!stack.isEmpty() && stack.peekFirst() < c && k-- > 0) //나보다 작은 앞 놈 뺌. 뺄 때마다 k--;
+                stack.pollFirst();
+            stack.offerFirst(c);
         }
-        int cnt=0;
-        for(int c: clothes)
-            if(c==-1) cnt++;
-        return n-cnt;
+
+        for (int i = 0;i<result.length;++i)
+            result[i] = stack.pollLast();
+        return new String(result);
     }
+
     public static void main(String[] args) {
-        System.out.println(solution(5, new int[]{2, 4}, new int[]{3}));
+        System.out.println(solution("1000", 2));
     }
 }
