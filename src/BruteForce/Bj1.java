@@ -17,7 +17,6 @@ public class Bj1 {
             b[i] = sc.nextInt();
         ArrayList<Integer> sumA = new ArrayList<>();
         ArrayList<Integer> sumB = new ArrayList<>();
-
         for (int i = 0; i < n; i++) {//start
             int sum = 0;
             for (int j = i; j < n; j++) {//end
