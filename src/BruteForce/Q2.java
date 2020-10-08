@@ -33,7 +33,7 @@ public class Q2 {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = numbers.charAt(i) - '0';
-        for (int m = 1; m <= n; m++)
+        for (int m = 1; m <= n; m++) //모든 길이의 조합 만들기. 이렇게 되면 누적된 합을 활용 못해
             combinate(arr, 0, 0, m);
 
         int cnt=0;
