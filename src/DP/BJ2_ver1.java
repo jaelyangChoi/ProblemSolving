@@ -1,5 +1,5 @@
 package DP;
-//점프
+//점프 O(N^3) 풀이
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,8 +10,7 @@ for문 돌리려다가 너무 비효율적인 것 같아서 안했는데,, 그�
 너무 유형에 맞추려다보니 생각이 틀에 갇혔다.
 */
 //배운 점: 손으로 풀어서 규칙 발견하기..간과하지말자!
-
-public class BJ2 {
+public class BJ2_ver1 {
     static long[][] d;//경로가 너무 클 수 있으므로 long..
     static int[][] board;
 
