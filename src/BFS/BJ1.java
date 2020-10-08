@@ -14,7 +14,7 @@ public class BJ1 {
         int[][] dist = new int[1001][1001];
         Queue<Integer> q = new ArrayDeque<>();
         q.offer(1);//s:화면
-        q.offer(0);//c: 클립보드
+        q.offer(0);//c:클립보드
         check[1][0] = true;
         while (!q.isEmpty()) {
             int s = q.poll();
