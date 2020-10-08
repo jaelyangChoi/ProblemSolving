@@ -1,54 +1,51 @@
 package BFS;
-//숨바꼭질4
+//이모티콘
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class BJ1 {
-    //역순 출력
-    static void print(int[] from, int start, int node) {
-        if (node != start)
-            print(from, start, from[node]);
-        System.out.print(node + " ");
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int k = sc.nextInt();
-
-        final int max = 100000;
-        boolean[] check = new boolean[max + 1]; //방문 기록
-        int[] dist = new int[max + 1]; //v까지의 거리 = dist[v]
-        int[] from = new int[max + 1]; //v에 오기전 노드 = from[v]
+        //정점: (화면 이모티콘 수, 클립보드 이모티콘 수)
+        boolean[][] check = new boolean[1001][1001];
+        int[][] dist = new int[1001][1001];
         Queue<Integer> q = new ArrayDeque<>();
-        q.offer(n);
-        check[n] = true;
-        dist[n] = 0;
-        //각 노드에서 방문할 수 있는 모든 지점을 방문하고 큐에 넣어 같은 레벨(시간,비용) 유지
+        q.offer(1);//s:화면
+        q.offer(0);//c: 클립보드
+        check[1][0] = true;
         while (!q.isEmpty()) {
-            int x = q.poll();
-            if (x - 1 >= 0 && !check[x - 1]) {
-                q.offer(x - 1);
-                check[x - 1] = true;
-                dist[x - 1] = dist[x] + 1;
-                from[x - 1] = x;
+            int s = q.poll();
+            int c = q.poll();
+            //클립보드에 복사
+            if (s <= 1000 && !check[s][s + c]) {
+                q.offer(s);
+                q.offer(s);
+                check[s][s] = true;
+                dist[s][s] = dist[s][c] + 1;
             }
-            if (x + 1 <= max && !check[x + 1]) {
-                q.offer(x + 1);
-                check[x + 1] = true;
-                dist[x + 1] = dist[x] + 1;
-                from[x + 1] = x;
+            //화면에 복사
+            if (s + c <= 1000 && !check[s + c][c]) {
+                q.offer(s + c);
+                q.offer(c);
+                check[s + c][c] = true;
+                dist[s + c][c] = dist[s][c] + 1;
             }
-            if (2 * x <= max && !check[2 * x]) {
-                q.offer(2 * x);
-                check[2 * x] = true;
-                dist[2 * x] = dist[x] + 1;
-                from[2 * x] = x;
+            //화면에서 하나 삭제
+            if (s - 1 >= 0 && !check[s - 1][c]) {
+                q.offer(s - 1);
+                q.offer(c);
+                check[s - 1][c] = true;
+                dist[s - 1][c] = dist[s][c] + 1;
             }
         }
-        System.out.println(dist[k]);
-        print(from, n, k);
+        //정답 찾기. 화면 갯수가 n일 때 클립보드 상태는 0~1000까지 다양.
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i <= 1000; i++)
+            if (check[n][i] && min > dist[n][i])
+                min = dist[n][i];
+        System.out.println(min);
     }
 }
