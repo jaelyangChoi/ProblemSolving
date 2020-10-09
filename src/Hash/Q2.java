@@ -1,5 +1,5 @@
 package Hash;
-
+//전화번호 목록
 import java.util.Arrays;
 
 //문자열 정렬은 시간이 많이 든다.

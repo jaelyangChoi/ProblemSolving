@@ -1,6 +1,5 @@
 package Heap;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 //왜 예전에 풀었던 문젠데 못풀까?
 // -> 틀에 얽매여서 사고가 갇혔다. 코딩은 정답이 하나가 아니다..
