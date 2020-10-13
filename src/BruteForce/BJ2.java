@@ -19,7 +19,7 @@ public class BJ2 {
             if (arr[mid] <= val) //그럼 val는 mid보다 오른쪽에 있다.
                 left = mid + 1;
             else //e는 mid보다 왼쪽에 있다.
-                right = mid; //mid-1로 하니까 헷갈렸는데 명쾌하네..
+                right = mid; //mid-1로 하니까 헷갈렸는데 명쾌하네.. 정확하게 val을 찾는게 아니라 mid-1로 제할 필요x
         }
         return left;
     }
