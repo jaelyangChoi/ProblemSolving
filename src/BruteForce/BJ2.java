@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-//팁: n^4는 너무 커.. 반으로 나누기!(n^2)
-
+//팁: n^4는 너무 커.. 반으로 나누기!(n^2은 할만하다)
 //깨달음: 이진 탐색, 정렬 등을 배우면서 습득한 원리, 아이디어를 코테에 활용하는 거구나..
-
-//ArrayList로 풀었는데 시간초과 나왔다. 이유:
-//배열로 풀었는데도 시간이 오래걸렸다. 이유:
+//ArrayList로 풀었는데 시간초과 나왔다. 이유: add시 allocation을 하기 때문. new ArrayList<>(n*n)을 하면 빨라짐.
 public class BJ2 {
+    /*여러가지 구현 방식이 있지만 [left,right) 방식은 예외처리가 더 적어서 이렇게 구현함*/
     //val보다 큰 것 중 제일 작은 것
     static int upperBound(int[] arr, int val) {
         int left = 0;
