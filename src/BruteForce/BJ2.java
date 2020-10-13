@@ -9,7 +9,8 @@ import java.util.Arrays;
 //깨달음: 이진 탐색, 정렬 등을 배우면서 습득한 원리, 아이디어를 코테에 활용하는 거구나..
 //ArrayList로 풀었는데 시간초과 나왔다. 이유: add시 allocation을 하기 때문. new ArrayList<>(n*n)을 하면 빨라짐.
 public class BJ2 {
-    /*여러가지 구현 방식이 있지만 [left,right) 방식은 예외처리가 더 적어서 이렇게 구현함*/
+    /*여러가지 구현 방식이 있지만 [left,right) 방식은 예외처리가 더 적어서 이렇게 구현함*
+    이분탐색과 upper_bound는 먼저 구간을 어떻게 정의할 것인지 정해야 한다.[l,r] or [l,r)*/
     //val보다 큰 것 중 제일 작은 것
     static int upperBound(int[] arr, int val) {
         int left = 0;
