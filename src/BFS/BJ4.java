@@ -1,7 +1,5 @@
 package BFS;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
