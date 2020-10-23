@@ -1,4 +1,5 @@
 package Sort;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,16 +14,16 @@ public class Q2 {
             list.add(Integer.toString(e));
         System.out.println(list);
         Collections.sort(list, (o1, o2) -> {
-            int i1 = Integer.parseInt(o1+o2);
-            int i2 = Integer.parseInt(o2+o1);
-            return i2-i1; //내림차순
+            int i1 = Integer.parseInt(o1 + o2);
+            int i2 = Integer.parseInt(o2 + o1);
+            return i2 - i1; //내림차순
         });
         System.out.println(list);
         StringBuilder sb = new StringBuilder();
-        for(String s: list)
-        sb.append(s);
+        for (String s : list)
+            sb.append(s);
 
-        return sb.toString().charAt(0)=='0'?"0":sb.toString();
+        return sb.toString().charAt(0) == '0' ? "0" : sb.toString();
     }
 
 
@@ -30,7 +31,7 @@ public class Q2 {
         //System.out.println(solution(new int[]{3, 30, 303,31,34}));
         //System.out.println(solution(new int[]{0,10,11,111,100,1000}));
         //System.out.println(solution(new int[]{1,10001,10002, 1003}));
-        System.out.println(solution(new int[]{40,404,44}));
-        System.out.println(solution(new int[]{404,40,4}));
+        System.out.println(solution(new int[]{40, 404, 44}));
+        System.out.println(solution(new int[]{404, 40, 4}));
     }
 }
