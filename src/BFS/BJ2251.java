@@ -8,11 +8,12 @@ import java.util.*;
 2. 계산이 너무 많아 (6가지 경우) 주저했다 -> 일반화하면 된다.*/
 //팁: 3개의 변수 -> 3차원 배열? No! 2개를 알면 나머지 하나를 구할 수 있다->2차원 배열
 /*BFS의 원리
+0. 레벨 개념
 1. 한 상태(정점)에서 가능한 모든 경우를 다간다 -> 큐
 2. 같은 경로를 반복하지 않기 위해 boolean check[]
 3. 큐에서 꺼내며 모든 경우 수행(계산) -> for문 일반화 가능
 (4. 비용, 이전 방문 정점을 기록할 int[] d, from 등)*/
-public class BJ6 {
+public class BJ2251 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] cap = new int[3];
