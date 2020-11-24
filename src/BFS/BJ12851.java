@@ -9,7 +9,7 @@ import java.util.Scanner;
 //DP 쓸때 배열의 정의를 확실히
 //고칠점: 방문할 때만 연산하려는 고정관념에서 벗어나라! 최소한 고민은 해보자!
 //팁: 어떻게 처리해야할지 모르겠을 땐 상황을 그림으로 그려봐라!
-public class BJ7 {
+public class BJ12851 {
     static final int max = 100000;
 
     public static void main(String[] args) {

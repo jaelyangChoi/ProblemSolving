@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 //숨바꼭질3, 가중치가 다른 경우
-public class BJ4 {
+public class BJ13549 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

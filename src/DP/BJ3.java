@@ -1,5 +1,5 @@
 package DP;
-
+//펠린드롬
 import java.util.Arrays;
 import java.util.Scanner;
 
