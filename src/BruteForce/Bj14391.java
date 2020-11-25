@@ -3,7 +3,7 @@ package BruteForce;
 import java.util.Scanner;
 
 //발상법: 2개 중 하나에 속한다->0,1로 모델링->비트마스크!
-public class Bj3 {
+public class Bj14391 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();//세로 길이
