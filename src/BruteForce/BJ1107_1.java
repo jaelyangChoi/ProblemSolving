@@ -1,4 +1,4 @@
-package BFS;
+package BruteForce;
 //리모컨 풀이1
 
 import java.util.Scanner;

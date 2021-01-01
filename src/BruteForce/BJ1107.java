@@ -1,4 +1,4 @@
-package BFS;
+package BruteForce;
 //리모컨
 import java.util.Scanner;
 //완전 탐색의 범위가 정해져있다면 for문으로 가능
