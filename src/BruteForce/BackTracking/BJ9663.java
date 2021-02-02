@@ -1,7 +1,7 @@
 package BruteForce.BackTracking;
 //N-Queen
-//다시 풀어서 중복 계산을 줄이는 아이디어 연습하기
-//O(1) 시간만에 한번에 조회할 순 없을까? 이 라인에 있는지 없는지.
+//다시 풀어서 배열을 활용하는 스킬 익히기
+//O(1) 시간만에 한번에 조회할 순 없을까? 이 라인에 있는지 없는지. 라인 한 줄을 하나로 본다!
 import java.util.Scanner;
 
 public class BJ9663 {
