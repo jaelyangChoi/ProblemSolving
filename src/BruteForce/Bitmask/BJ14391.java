@@ -25,7 +25,7 @@ public class BJ14391 {
                 int line = 0;
                 //boolean successful = false; 연속되는지 아닌지 굳이 판별할 필요가 없었다..
                 for (int j = 0; j < m; j++) {
-                    int idx = m * i + j;
+                    int idx = m * i + j; //오류 원인: idx=n*i+j로 함..
                     if ((k & (1 << idx)) == 0) { // idx번째가 0(가로)이라면
                         line = line * 10 + arr[i][j];
                     } else {
