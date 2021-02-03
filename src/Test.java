@@ -4,9 +4,7 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        int a = 1;
-        boolean b = a == 1;
-        System.out.println(b);
+        System.out.println(Integer.bitCount(5));
 
     }
 }
