@@ -1,6 +1,6 @@
 package BruteForce.Bitmask;
 //2048(Easy)
-
+//n번 이동 경로 -> 비트마스크로 모든 경로를 만들어본다.
 import java.util.Scanner;
 
 public class BJ12100 {
