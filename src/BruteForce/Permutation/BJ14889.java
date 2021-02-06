@@ -1,42 +1,54 @@
-package BruteForce.permutation;
-//외판원 순회2 (TSP)
+package BruteForce.Permutation;
+//스타트와 링크
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//(a-b-c-a) == (b-c-a-b) 같으므로, 시작점을 a로 고정해도 된다.
-public class BJ10971 {
+public class BJ14889 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int[][] expense = new int[n][n];
+        int[][] arr = new int[n][n];
         for (int i = 0; i < n; i++) {
             String[] s = br.readLine().split(" ");
             for (int j = 0; j < n; j++)
-                expense[i][j] = Integer.parseInt(s[j]);
+                arr[i][j] = Integer.parseInt(s[j]);
         }
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++)
-            arr[i] = i;
         int min = Integer.MAX_VALUE;
-        //모든 순열을 만든다.
+
+        //팀 배분 -> 0,1 같은 것을 포함한 순열
+        int[] member = new int[n];
+        for (int i = n - 1; i >= n / 2; i--)
+            member[i] = 1;
+        int[] team1 = new int[n / 2];
+        int[] team2 = new int[n / 2];
+
         do {
-            if(arr[0]!=0) break; //시작점을 0으로 고정했으므로
-            //비용 계산
-            int sum = expense[arr[n - 1]][arr[0]];
-            if (sum == 0) continue;
-            for (int i = 0; i < n-1; i++) {
-                int exp = expense[arr[i]][arr[i + 1]];
-                if (exp == 0) {
-                    sum = -1;
-                    break;
-                }
-                sum += exp;
+            int i1 = 0, i2 = 0;
+            for (int i = 0; i < n; i++) {
+                if (member[i] == 0) team1[i1++] = i;
+                else team2[i2++] = i;
             }
-            if (sum > 0 && sum < min) min = sum;
-        } while (next_permutation(arr));
+            //능력치 계산
+            int t1 = calc(team1, arr);
+            int t2 = calc(team2, arr);
+            min = Math.min(min, Math.abs(t1 - t2));
+        } while (next_permutation(member));
+
         System.out.println(min);
+    }
+
+    private static int calc(int[] team, int[][] arr) {
+        int m = team.length;
+        int sum = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < m; j++) {
+                if (i == j) continue;
+                sum += arr[team[i]][team[j]];
+            }
+        }
+        return sum;
     }
 
     //사전 순으로 다음에 오는 순열로 만든다. (오름차순)

@@ -1,4 +1,4 @@
-package BruteForce.permutation;
+package BruteForce.Permutation;
 //단어 수학
 /* 교훈 */
 //자료구조를 처음부터 잘 생각하면 전체 뒤엎을 일도 없다..

@@ -1,4 +1,4 @@
-package BruteForce.permutation;
+package BruteForce.Permutation;
 //로또
 //다시 풀기
 

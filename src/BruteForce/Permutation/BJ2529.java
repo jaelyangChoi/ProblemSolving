@@ -1,4 +1,4 @@
-package BruteForce.permutation;
+package BruteForce.Permutation;
 //부등호
 import java.util.Scanner;
 

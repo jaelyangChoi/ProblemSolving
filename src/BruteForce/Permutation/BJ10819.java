@@ -1,4 +1,4 @@
-package BruteForce.permutation;
+package BruteForce.Permutation;
 
 import java.util.Arrays;
 import java.util.Scanner;
