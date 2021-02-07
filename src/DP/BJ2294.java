@@ -9,19 +9,19 @@ public class BJ2294 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int k = sc.nextInt();
-        int[] v = new int[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++)
-            v[i] = sc.nextInt();
+            arr[i] = sc.nextInt();
 
-        int[] c = new int[k+1];//c[i]: i를 만들 때 사용한 동전 갯수
-        Arrays.fill(c,-1);
-        c[0]=0; //->c[i]=c[0]+{i} 가 1로 표현됨!
-        for (int i = n - 1; i >= 0; i--)//큰 동전부터
-            for (int j = 1; j <= k; j++)
-                if (j - v[i] >= 0 && c[j - v[i]] != -1)
-                    if (c[j] == -1 || c[j] > c[j - v[i]] + 1)
-                        c[j] = c[j - v[i]] + 1;
-
-        System.out.println(c[k]);
+        int[] d = new int[k + 1]; //d[i]: i를 만드는데 필요한 최소 동전 수. d[i]=min(d[i-k])+1
+        Arrays.fill(d, -1);
+        d[0] = 0;
+        for (int i = 1; i <= k; i++)
+            for (int x : arr)
+                if (i - x >= 0 && d[i - x] != -1) { //존재하지 않는 경우 제외
+                    if (d[i] == -1 || d[i] > d[i - x] + 1) //최소 값으로 갱신
+                        d[i] = d[i - x] + 1;
+                }
+        System.out.println(d[k]);
     }
 }
