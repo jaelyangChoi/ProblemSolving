@@ -34,7 +34,7 @@ public class BJ1208 {
         long ans = 0;
         Arrays.sort(first);
         Arrays.sort(second);
-        n = 1 << (n - m);//길이
+        n = 1 << (n - m); //길이
         m = 1 << m; //m이 20이면 2^20개..아직은 int 범위.
         int f = 0, e = n - 1;
         while (f < m && e >= 0) {
