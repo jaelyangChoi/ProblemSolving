@@ -1,7 +1,7 @@
 package DP;
 //펠린드롬?
 //BufferedIO를 안 써서 시간 초과가 난 것.
-
+//top-down, bottom-up 둘 다 풀 줄 알아야 한다.
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
