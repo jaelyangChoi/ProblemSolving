@@ -1,6 +1,6 @@
 package BruteForce.MeetInTheMiddle;
 // 두 배열의 합
-/* 연속합: n^2보다 작음. 연속합x: 2^n*/
+/* 연속합:n(n+1)/2 | 연속합x:2^n */
 //발상 못한 이유: n,m이 너무 크다. 2^1000... => X. 연속합이었다.. 그럼 1000^2..
 
 import java.io.BufferedReader;
