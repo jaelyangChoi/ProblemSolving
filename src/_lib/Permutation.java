@@ -1,4 +1,4 @@
-package lib;
+package _lib;
 //순열 라이브러리
 //배열을 전달하면 순서를 바꿔서 반환
 import java.util.Scanner;
