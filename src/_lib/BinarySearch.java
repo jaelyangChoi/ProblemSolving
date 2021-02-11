@@ -23,8 +23,8 @@ public class BinarySearch {
         int right = a.length;
         while (left < right) {
             int mid = (left + right) / 2;
-            if (a[mid] < target) left = mid + 1;
-            else right = mid;
+            if (a[mid] >= target) right = mid;
+            else left = mid + 1;
         }
         return left;
     }
