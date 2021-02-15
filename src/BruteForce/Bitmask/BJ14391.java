@@ -38,6 +38,7 @@ public class BJ14391 {
             //세로 합
             for (int j = 0; j < m; j++) {
                 int line = 0;
+                boolean successful = false;
                 for (int i = 0; i < n; i++) {
                     int idx = m * i + j;
                     if ((k & (1 << idx)) != 0) { // idx번째가 1(세로)이라면
