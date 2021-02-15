@@ -10,7 +10,7 @@ import java.util.Scanner;
 등호 => 같은 수는 넘어간다. 즉, 같은 것을 포함한 순열이다.
 */
 public class Permutation {
-    //사전 순으로 다음에 오는 순열로 만든다. (오름차순->내림차순) 1,2 -> 2,1
+    //사전 순으로 다음에 오는 순열로 만든다. (내림차순) 1,2 -> 2,1
     public static boolean next_permutation(int[] arr) {
         //마지막 부분 순열의 경계 찾기(앞으로 이동하며 내림차순의 끝)
         int i = arr.length - 1; //경계를 가리킴 (맨 끝부터)
@@ -40,7 +40,7 @@ public class Permutation {
         return true;
     }
 
-    //사전 순으로 이전에 오는 순열로 만든다. (내림차순)
+    //사전 순으로 이전에 오는 순열로 만든다.
     public static boolean prev_permutation(int[] a) {
         //오름차순의 경계찾기
         int i = a.length - 1;
