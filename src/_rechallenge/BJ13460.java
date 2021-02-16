@@ -1,5 +1,5 @@
 package _rechallenge;
-//구슬 탈출2
+//구슬 탈출2 https://www.acmicpc.net/problem/13460 : 푸는데 오래 걸림
 //이동 문제 => bfs or 완탐으로 모든 경로 만들기
 
 import java.util.Scanner;
