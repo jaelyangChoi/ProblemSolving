@@ -1,5 +1,7 @@
-package BFS;
-//레이저 통신
+package _rechallenge;
+//레이저 통신  https://www.acmicpc.net/problem/6087
+//비용이 무엇인가?
+//예외: 그림 그려 진행하가면서 찾음. 습관적으로 짜는 코드가 위험하다.. 의심해라!
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,17 +9,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
-
-/* 의미 찾기
-    거울 설치->직선의 방향이 바뀜을 의미
-    답 = 필요한 직선의 갯수 -1
-*/
-// 한 칸씩 진행이 아니라 한 라인을 통째로!
-/* 발상법
-    정답 - 직선의 갯수가 필요. 최소 직선 갯수.
-    직선 이동이 같은 비용. ---- 가중치 1 => 가중치 최소 => BFS!
-    직선 단위로 계산.
-*/
 
 public class BJ6087 {
     public static void main(String[] args) throws IOException {
@@ -28,44 +19,47 @@ public class BJ6087 {
         int w = Integer.parseInt(temp[0]);
         int h = Integer.parseInt(temp[1]);
         String[] map = new String[h];
-        int si = -1, sj = -1, ei = -1, ej = -1;
+        int i1 = -1, j1 = -1, i2 = -1, j2 = -1;
         for (int i = 0; i < h; i++) {
             map[i] = br.readLine();
             for (int j = 0; j < w; j++)
-                if (map[i].charAt(j) == 'C') {
-                    if (si == -1) {
-                        si = i;
-                        sj = j;
+                if (map[i].charAt(j) == 'C')
+                    if (i1 == -1) {
+                        i1 = i;
+                        j1 = j;
                     } else {
-                        ei = i;
-                        ej = j;
+                        i2 = i;
+                        j2 = j;
                     }
-                }
         }
+        //C1에서 bfs로 이동한다
         Queue<Integer> q = new ArrayDeque<>();
         int[][] d = new int[h][w];
-        for (int i = 0; i < h; i++)
-            Arrays.fill(d[i], -1);
-        d[si][sj] = 0;
-        q.offer(si);
-        q.offer(sj);
+        for (int[] x : d)
+            Arrays.fill(x, -1);
+        d[i1][j1] = 0;
+        q.offer(i1);
+        q.offer(j1);
         while (!q.isEmpty()) {
             int i = q.poll();
             int j = q.poll();
+            if (i == i2 & j == j2) break;
             for (int k = 0; k < 4; k++) {
+                //라인 단위로 이동, 같은 라인은 비용이 같다.
                 int ni = i + di[k];
                 int nj = j + dj[k];
                 while (ni >= 0 && ni < h && nj >= 0 && nj < w && map[ni].charAt(nj) != '*') {
-                    if (d[ni][nj] == -1) {
+                    if (d[ni][nj] == -1) { //예외: break로 끝내면 안된다!!
                         d[ni][nj] = d[i][j] + 1;
                         q.offer(ni);
                         q.offer(nj);
-                    }//keep going
+                    }//keep going!!
                     ni += di[k];
                     nj += dj[k];
                 }
             }
         }
-        System.out.println(d[ei][ej] - 1);
+        //직선의 갯수 = d-1
+        System.out.println(d[i2][j2] - 1);
     }
 }
